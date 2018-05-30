@@ -23,7 +23,7 @@
     <ProjectGuid>{A2B89E9D-F758-47B9-B0B1-C9036967B251}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>TriviaServer</RootNamespace>
-    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -145,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="Socket.h" />
     <ClInclude Include="StdAfx.h" />
+    <ClInclude Include="SocketException.h" />
     <ClInclude Include="TriviaServerException.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -29,6 +29,9 @@
     <ClInclude Include="Socket.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SocketException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="TriviaServerException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
