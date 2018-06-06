@@ -139,11 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ClientListener.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Socket.cpp" />
+    <ClCompile Include="Communicator.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Socket.h" />
+    <ClInclude Include="ClientListener.h" />
+    <ClInclude Include="Communicator.h" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="SocketException.h" />
     <ClInclude Include="TriviaServerException.h" />

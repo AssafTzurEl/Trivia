@@ -18,7 +18,10 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Socket.cpp">
+    <ClCompile Include="Communicator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ClientListener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -26,13 +29,16 @@
     <ClInclude Include="StdAfx.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Socket.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SocketException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TriviaServerException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Communicator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ClientListener.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
