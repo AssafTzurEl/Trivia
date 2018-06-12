@@ -44,29 +44,43 @@ void ClientListener::StopListening()
 
 void ClientListener::ListenToClients(SOCKET serverSocket)
 {
-    sockaddr_in clientAddress;
-    int sockaddr_inSize = sizeof(sockaddr_in);
-    const size_t BUF_SIZE = 20;
-    char addrBuf[BUF_SIZE];
-
-    while (m_isListening)
+    try
     {
-        auto clientSocket = ::accept(serverSocket,
-            reinterpret_cast<sockaddr *>(&clientAddress), &sockaddr_inSize);
+        sockaddr_in clientAddress;
+        int sockaddr_inSize = sizeof(sockaddr_in);
+        const size_t BUF_SIZE = 20;
+        char addrBuf[BUF_SIZE];
 
-        if (INVALID_SOCKET == clientSocket)
+        while (m_isListening)
         {
-            throw SocketException("Error accepting connection");
+            auto clientSocket = ::accept(serverSocket,
+                reinterpret_cast<sockaddr *>(&clientAddress), &sockaddr_inSize);
+
+            if (INVALID_SOCKET == clientSocket)
+            {
+                throw SocketException("Error accepting connection");
+            }
+
+            // else...
+
+            LOG("Accepted connection from "
+                << inet_ntop(AF_INET, &clientAddress.sin_addr, addrBuf, BUF_SIZE) << ":"
+                << ntohs(clientAddress.sin_port));
+
+            HandleClient(clientSocket);
         }
-
-        // else...
-
-        LOG("Accepted connection from "
-            << inet_ntop(AF_INET, &clientAddress.sin_addr, addrBuf, BUF_SIZE) << ":"
-            << ntohs(clientAddress.sin_port));
-        
-        HandleClient(clientSocket);
-    }}
+    }
+    catch (std::exception &ex)
+    {
+        LOG_ERROR("Error while listening to clients: " << ex.what());
+        m_isListening = false;
+    }
+    catch (...)
+    {
+        LOG_ERROR("Unknown error while listening to clients");
+        m_isListening = false;
+    }
+}
 
 void ClientListener::HandleClient(SOCKET clientSocket)
 {
