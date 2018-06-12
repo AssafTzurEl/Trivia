@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="ClientListener.h" />
     <ClInclude Include="Communicator.h" />
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="StdAfx.h" />
     <ClInclude Include="SocketException.h" />
     <ClInclude Include="TriviaServerException.h" />
